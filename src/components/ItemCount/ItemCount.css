@@ -1,0 +1,19 @@
+.Controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 50px;
+}
+
+.Controls > button{
+   width: 50px;
+   height: 40px;
+   border-radius: 5px;
+}
+
+.agregarAlCarrito > button{
+    width: 210px;
+    height: 30px;
+    background-color:rgb(92, 145, 87);
+    border-radius: 5px;
+}
