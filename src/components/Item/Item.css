@@ -1,0 +1,21 @@
+.CardItem{
+    
+    justify-content: center;
+    background-color: rgb(167, 218, 167);
+    width: 250px;
+    margin: 0 5px ;
+    border-radius: 5px;
+    padding-bottom: 15px;
+}
+
+.ItemImg{
+    width: 150px;
+}
+
+.Option{
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(18, 90, 18);
+    color: white;
+}
