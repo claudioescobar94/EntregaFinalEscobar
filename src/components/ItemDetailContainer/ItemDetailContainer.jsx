@@ -7,17 +7,19 @@ export const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState(null)
 
-    const { ItemId } = useParams()
+    const {itemId} = useParams()
 
     useEffect(() => {
-      getProductById(ItemId)
+      getProductById(parseInt(itemId))
         .then( response => {
             setProduct(response)
         })
         .catch(error=> {
             console.error(error);
         })
-    }, [ItemId])
+    }, [itemId])
+
+   
     
 
   return (

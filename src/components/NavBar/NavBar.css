@@ -1,17 +1,48 @@
-.navBar{
-    background-color: rgb(101, 150, 101);
-    padding: 0 10px;
+.navBar {
+  background-color: #333;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navBar .title {
+  color: #fff;
+  font-size: 24px;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
 }
 
 .navBar > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.option > button{
-    margin-left: 10px;
+.Option {
+  color: #fff;
+  text-decoration: none;
+  background-color: #333;
+  padding: 0 30px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+.Option:hover {
+  background-color: #555;
+}
 
-
+.ActiveOption{
+    color: #fff;
+    text-decoration: none;
+    background-color: #555;
+    padding: 0 30px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+}

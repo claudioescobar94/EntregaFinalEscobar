@@ -1,0 +1,17 @@
+
+.cart-widget{
+    
+    display: flex;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-widget:hover{
+    background-color: #555;
+}
