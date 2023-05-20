@@ -1,12 +1,24 @@
 import { useState, useEffect } from "react"
 import {getProducts , getProductsByCategory} from '../../asyncMock'
 import ItemList from "../ItemList/ItemList"
-import { useParams } from "react-router-dom"
+import {  useParams } from "react-router-dom"
 import './ItemListContainer.css'
+import {doc, getDocs, getFirestore ,collection, Firestore} from 'firebase/firestore'
 
 
+const ItemsListContainer = ()=>{
 
-const ItemsListContainer = ({greeting})=>{
+    const getProducts = ()=>{
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                resolve(products)
+            },500)
+        })
+    }
+
+    
+
+    const db = getFirestore()
     
     const [products, setProducts] = useState([])
 
@@ -14,7 +26,7 @@ const ItemsListContainer = ({greeting})=>{
 
     useEffect(()=>{
 
-        const asyncFunc = categoryId ? getProductsByCategory : getProducts
+        /* const asyncFunc = categoryId ? getProductsByCategory : getProducts
 
         asyncFunc(categoryId)
             .then(response => {
@@ -22,9 +34,16 @@ const ItemsListContainer = ({greeting})=>{
             })
             .catch(error => {
                 console.error(error);
+            }) */
+
+            const productsDB = collection(db,'Productos')
+
+            getDocs (productsDB)
+            .then(products => {
+                setProducts(products.docs.map(doc=>({id:doc.id , ...doc.data()})))
             })
 
-    },[categoryId])
+    },[db])
 
     return(
         <div className="ItemList">
