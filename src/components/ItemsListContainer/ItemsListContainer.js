@@ -1,20 +1,11 @@
 import { useState, useEffect } from "react"
-import {getProducts , getProductsByCategory} from '../../asyncMock'
 import ItemList from "../ItemList/ItemList"
 import {  useParams } from "react-router-dom"
 import './ItemListContainer.css'
-import {doc, getDocs, getFirestore ,collection, Firestore} from 'firebase/firestore'
+import {getDocs, getFirestore ,collection} from 'firebase/firestore'
 
 
 const ItemsListContainer = ()=>{
-
-    const getProducts = ()=>{
-        return new Promise((resolve)=>{
-            setTimeout(()=>{
-                resolve(products)
-            },500)
-        })
-    }
 
     
 
@@ -24,27 +15,29 @@ const ItemsListContainer = ()=>{
 
     const { categoryId } = useParams ()
 
-    useEffect(()=>{
+    useEffect(() => {
+        const productsDB = collection(db, 'Productos');
 
-        /* const asyncFunc = categoryId ? getProductsByCategory : getProducts
+        getDocs(productsDB)
+        
+        .then((products) => {
 
-        asyncFunc(categoryId)
-            .then(response => {
-                setProducts(response)
-            })
-            .catch(error => {
-                console.error(error);
-            }) */
+          const allProducts = products.docs.map((doc) => ({
 
-            const productsDB = collection(db,'Productos')
+            id: doc.id,...doc.data()}));
 
-            getDocs (productsDB)
-            .then(products => {
-                setProducts(products.docs.map(doc=>({id:doc.id , ...doc.data()})))
-            })
-
-    },[db])
-
+          if (categoryId) {
+            const filteredProducts = allProducts.filter(
+              (product) => product.category === categoryId
+            );
+            setProducts(filteredProducts);
+          } else {
+            setProducts(allProducts);
+          }
+        });
+      }, [categoryId, db]);
+      
+      
     return(
         <div className="ItemList">
             <ItemList products={products}/> 
