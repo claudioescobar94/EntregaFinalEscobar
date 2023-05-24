@@ -1,7 +1,7 @@
 
-.cart-widget{
+.cartWidget{
     
-    display: flex;
+  display: flex;
   align-items: center;
   background-color: #333;
   color: #fff;
@@ -10,8 +10,10 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 10px;
+  text-decoration: none;
 }
 
-.cart-widget:hover{
+.cartWidget:hover{
     background-color: #555;
 }

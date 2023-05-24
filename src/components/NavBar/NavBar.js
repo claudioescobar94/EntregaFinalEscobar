@@ -6,9 +6,11 @@ import './NavBar.css'
 const NavBar = ()=>{
     return (
         <nav className="navBar">
+           
             <Link to= '/'> 
                 <h3 className="title">PeaMoa</h3>
             </Link>
+           
             <div>
                 <NavLink to={`/category/remera`} className={({isActive})=> isActive ? 'ActiveOption' : 'Option'}>Remeras</NavLink>
                 <NavLink to={`/category/campera`} className={({isActive})=> isActive ? 'ActiveOption' : 'Option'}>Camperas</NavLink>

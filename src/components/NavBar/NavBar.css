@@ -10,8 +10,8 @@
   color: #fff;
   font-size: 24px;
   margin: 0;
-  text-decoration: none;
-  list-style: none;
+ 
+  
 }
 
 .navBar > div {
@@ -34,6 +34,7 @@
 
 .Option:hover {
   background-color: #555;
+  color: black;
 }
 
 .ActiveOption{

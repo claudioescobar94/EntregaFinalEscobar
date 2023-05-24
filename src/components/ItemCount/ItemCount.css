@@ -24,3 +24,10 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.Counter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

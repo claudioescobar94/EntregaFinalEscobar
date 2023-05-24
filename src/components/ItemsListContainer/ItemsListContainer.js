@@ -2,14 +2,13 @@ import { useState, useEffect } from "react"
 import ItemList from "../ItemList/ItemList"
 import {  useParams } from "react-router-dom"
 import './ItemListContainer.css'
-import {getDocs, getFirestore ,collection} from 'firebase/firestore'
+import {getDocs, collection} from 'firebase/firestore'
+import {db} from '../../services/firebase/firebaseConfig'
 
 
 const ItemsListContainer = ()=>{
 
-    
-
-    const db = getFirestore()
+  
     
     const [products, setProducts] = useState([])
 
@@ -35,7 +34,7 @@ const ItemsListContainer = ()=>{
             setProducts(allProducts);
           }
         });
-      }, [categoryId, db]);
+      }, [categoryId]);
       
       
     return(

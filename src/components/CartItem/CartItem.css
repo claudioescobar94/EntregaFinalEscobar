@@ -1,0 +1,31 @@
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    flex-direction: column;
+  }
+  
+ 
+  .cart-item h4 {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  
+  .cart-item .quantity {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .cart-item .price {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .cart-item .total {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  
