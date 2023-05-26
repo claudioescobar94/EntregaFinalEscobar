@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDRBPwZI_Gr3ZcBl604XhwjRMNyMrHEfQw",
-    authDomain: "tienda-peamoa.firebaseapp.com",
-    projectId: "tienda-peamoa",
-    storageBucket: "tienda-peamoa.appspot.com",
-    messagingSenderId: "14947794638",
-    appId: "1:14947794638:web:341ad683753cc538015a9f"
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId
   };
   
   

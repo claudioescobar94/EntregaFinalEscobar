@@ -33,4 +33,11 @@
   .Option:hover {
     background-color: #e0e0e0;
   }
+
+  section{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+  }
   

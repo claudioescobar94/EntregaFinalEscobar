@@ -7,8 +7,8 @@ const NavBar = ()=>{
     return (
         <nav className="navBar">
            
-            <Link to= '/'> 
-                <h3 className="title">PeaMoa</h3>
+            <Link to= '/' className="title" > 
+                <h3 >PeaMoa</h3>
             </Link>
            
             <div>

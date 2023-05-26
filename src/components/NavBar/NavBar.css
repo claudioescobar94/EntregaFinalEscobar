@@ -8,10 +8,20 @@
 
 .navBar .title {
   color: #fff;
-  font-size: 24px;
+  font-size: 20px;
   margin: 0;
- 
-  
+  text-decoration: none;
+}
+
+.navBar .title:hover{
+  background-color: #a8a4a4;
+  color: black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.navBar h3{
+  margin: 0;
 }
 
 .navBar > div {

@@ -1,47 +1,46 @@
-import { useState, useEffect } from "react"
-import ItemList from "../ItemList/ItemList"
-import {  useParams } from "react-router-dom"
-import './ItemListContainer.css'
-import {getDocs, collection} from 'firebase/firestore'
-import {db} from '../../services/firebase/firebaseConfig'
+import { useState, useEffect } from "react";
+import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
+import "./ItemListContainer.css";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../../services/firebase/firebaseConfig";
+import { Slider } from "../Slider/Slider";
 
+const ItemsListContainer = () => {
+  const [products, setProducts] = useState([]);
 
-const ItemsListContainer = ()=>{
+  const { categoryId } = useParams();
 
-  
-    
-    const [products, setProducts] = useState([])
+  useEffect(() => {
+    const productsDB = collection(db, "Productos");
 
-    const { categoryId } = useParams ()
+    getDocs(productsDB).then((products) => {
+      const allProducts = products.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
 
-    useEffect(() => {
-        const productsDB = collection(db, 'Productos');
+      if (categoryId) {
+        const filteredProducts = allProducts.filter(
+          (product) => product.category === categoryId
+        );
+        setProducts(filteredProducts);
+      } else {
+        setProducts(allProducts);
+      }
+    });
+  }, [categoryId]);
 
-        getDocs(productsDB)
-        
-        .then((products) => {
-
-          const allProducts = products.docs.map((doc) => ({
-
-            id: doc.id,...doc.data()}));
-
-          if (categoryId) {
-            const filteredProducts = allProducts.filter(
-              (product) => product.category === categoryId
-            );
-            setProducts(filteredProducts);
-          } else {
-            setProducts(allProducts);
-          }
-        });
-      }, [categoryId]);
+  return (
+    <>
       
-      
-    return(
-        <div className="ItemList">
-            <ItemList products={products}/> 
-        </div>
-    )
-}
+      <Slider/>
 
-export default ItemsListContainer
+      <div className="ItemList">
+        <ItemList products={products} />
+      </div>
+    </>
+  );
+};
+
+export default ItemsListContainer;
