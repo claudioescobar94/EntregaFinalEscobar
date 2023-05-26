@@ -8,6 +8,7 @@ import { Slider } from "../Slider/Slider";
 
 const ItemsListContainer = () => {
   const [products, setProducts] = useState([]);
+  const [renderSlider, setRenderSlider] = useState(false);
 
   const { categoryId } = useParams();
 
@@ -25,16 +26,17 @@ const ItemsListContainer = () => {
           (product) => product.category === categoryId
         );
         setProducts(filteredProducts);
+        setRenderSlider(false);
       } else {
         setProducts(allProducts);
+        setRenderSlider(true);
       }
     });
   }, [categoryId]);
 
   return (
     <>
-      
-      <Slider/>
+      {renderSlider && <Slider />}
 
       <div className="ItemList">
         <ItemList products={products} />
@@ -44,3 +46,4 @@ const ItemsListContainer = () => {
 };
 
 export default ItemsListContainer;
+
